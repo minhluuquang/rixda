@@ -1,45 +1,43 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import * as Accordion from '@radix-ui/react-accordion';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+    <div className='container mx-auto mt-10'>
+      <Accordion.Root
+        type='single'
+        defaultValue='item-1'
+        collapsible
+        className='max-w-xs ring ring-gray-400 rounded-md p-4'
+      >
+        <Accordion.Item value='item-1' className='py-2'>
+          <Accordion.Header>
+            <Accordion.Trigger>Option 1?</Accordion.Trigger>
+          </Accordion.Header>
+          <Accordion.Content className='bg-red-400'>
+            Lorem Isum 1
+          </Accordion.Content>
+        </Accordion.Item>
+
+        <Accordion.Item value='item-2' className='py-2'>
+          <Accordion.Header>
+            <Accordion.Trigger>Option 2</Accordion.Trigger>
+          </Accordion.Header>
+          <Accordion.Content className='bg-red-400'>
+            Lorem Isum 2
+          </Accordion.Content>
+        </Accordion.Item>
+
+        <Accordion.Item value='item-3' className='py-2'>
+          <Accordion.Header>
+            <Accordion.Trigger>Option 3</Accordion.Trigger>
+          </Accordion.Header>
+          <Accordion.Content className='bg-red-400'>
+            Lorem Isum 3
+          </Accordion.Content>
+        </Accordion.Item>
+      </Accordion.Root>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
